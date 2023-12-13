@@ -12,4 +12,12 @@ describe('TDD Workshop', () => {
             expect(err.message).toEqual('Invalid input');
         }
     })
+
+    it('expect empty input to throw invalid input error', () => {
+        try {
+            calculator.calculate('');
+        } catch (err) {
+            expect(err.message).toEqual('Invalid input');
+        }
+    })
 });
