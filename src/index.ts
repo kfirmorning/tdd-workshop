@@ -1,6 +1,6 @@
 const PI = 3.14;
 
-const calculate = (arithmeticStr) => {
+export const calculate = (arithmeticStr: string) => {
     if (arithmeticStr) {
         const parsedArith = arithmeticStr.match(/.*:(.*)#/);
         if (!parsedArith || parsedArith.length < 2) {
@@ -11,8 +11,4 @@ const calculate = (arithmeticStr) => {
     } else {
         throw new Error('Invalid input');
     }
-}
-
-module.exports = {
-    calculate,
 }
