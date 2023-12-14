@@ -35,7 +35,7 @@ class Rectangle implements Shape {
     }
 }
 
-const shapeFactory = (arithmeticStr: string): Shape | null => {
+const shapeFactory = (arithmeticStr: string): Shape => {
     const parsedResult = parseArithmetics(arithmeticStr);
     switch (parsedResult.type) {
         case 'C':
@@ -45,8 +45,6 @@ const shapeFactory = (arithmeticStr: string): Shape | null => {
         default:
             throw new Error(`Shape ${parsedResult.type} is unknown`);
     }
-
-    return null;
 }
 
 const parseArithmetics = (arithmeticStr: string): ArithmeticConfig => {
@@ -64,10 +62,8 @@ const parseArithmetics = (arithmeticStr: string): ArithmeticConfig => {
 
 export const calculate = (arithmeticStr: string) => {
     if (arithmeticStr) {
-        const shape: Shape | null = shapeFactory(arithmeticStr);
-        if (shape) {
-            return shape.area();
-        }
+        const shape: Shape = shapeFactory(arithmeticStr);
+        return shape.area();
     } else {
         throw new Error('Invalid input');
     }
