@@ -28,4 +28,9 @@ describe('TDD Workshop', () => {
             expect(err.message).toEqual('Parsing error');
         }
     })
+
+    it('expect C:15#area to return 706.5', () => {
+        const result = calculator.calculate('C:15#area');
+        expect(result).toEqual(706.5);
+    });
 });
