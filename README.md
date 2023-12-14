@@ -6,7 +6,8 @@ In this workshop we will build a calculator for area and circumference of `circl
 
 ## Requirements
 * Input to both `area` and `circumference` is a string
-* If input is null or empty string the output is an Error with message `Invalid input`
+* If input is null the output is an Error with message `Invalid input`
+* If input is empty string the output is an Error with message `Invalid input`
 * If there is a parsing error the output is an Error with message `Parsing error`
 * A valid calculation should return a number representing the result requested
 * An input of `C:15#area` will return the area of a circle with radius 15
