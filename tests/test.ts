@@ -31,4 +31,13 @@ describe('TDD Workshop', () => {
         const result = calculate('R:4,5#area');
         expect(result).toEqual(20);
     });
+
+    it('expect G:123#area to throw error with message "shape G is unknown"', () => {
+        try {
+            const result = calculate('G:123#area');
+            // expect(result).not.toEqual(undefined);
+        } catch(err) {
+            expect((err as Error).message).toEqual('Shape G is unknown');
+        }
+    })
 });

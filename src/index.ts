@@ -42,8 +42,8 @@ const shapeFactory = (arithmeticStr: string): Shape | null => {
             return new Circle(parsedResult.params[0]);
         case 'R':
             return new Rectangle(parsedResult.params[0], parsedResult.params[1]);
-        // default:
-        //     Do not include here the next requirement yet since you don't have test for it!!!
+        default:
+            throw new Error(`Shape ${parsedResult.type} is unknown`);
     }
 
     return null;
