@@ -20,4 +20,12 @@ describe('TDD Workshop', () => {
             expect(err.message).toEqual('Invalid input');
         }
     })
+
+    it('expect wrong input format to throw Parsing error', () => {
+        try {
+            calculator.calculate('bla bla');
+        } catch (err) {
+            expect(err.message).toEqual('Parsing error');
+        }
+    })
 });
