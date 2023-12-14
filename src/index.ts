@@ -35,6 +35,20 @@ class Rectangle implements Shape {
     }
 }
 
+class Triangle implements Shape {
+    private height;
+    private base;
+
+    constructor(height: number, base: number) {
+        this.base = base;
+        this.height = height;
+    }
+
+    area(): number {
+        return (this.height * this.base) / 2;
+    }
+}
+
 const shapeFactory = (arithmeticStr: string): Shape => {
     const parsedResult = parseArithmetics(arithmeticStr);
     switch (parsedResult.type) {
@@ -42,6 +56,8 @@ const shapeFactory = (arithmeticStr: string): Shape => {
             return new Circle(parsedResult.params[0]);
         case 'R':
             return new Rectangle(parsedResult.params[0], parsedResult.params[1]);
+            case 'T':
+                return new Triangle(parsedResult.params[0], parsedResult.params[1]);
         default:
             throw new Error(`Shape ${parsedResult.type} is unknown`);
     }
