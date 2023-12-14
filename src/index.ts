@@ -56,8 +56,8 @@ const shapeFactory = (arithmeticStr: string): Shape => {
             return new Circle(parsedResult.params[0]);
         case 'R':
             return new Rectangle(parsedResult.params[0], parsedResult.params[1]);
-            case 'T':
-                return new Triangle(parsedResult.params[0], parsedResult.params[1]);
+        case 'T':
+            return new Triangle(parsedResult.params[0], parsedResult.params[1]);
         default:
             throw new Error(`Shape ${parsedResult.type} is unknown`);
     }
@@ -78,8 +78,13 @@ const parseArithmetics = (arithmeticStr: string): ArithmeticConfig => {
 
 export const calculate = (arithmeticStr: string) => {
     if (arithmeticStr) {
-        const shape: Shape = shapeFactory(arithmeticStr);
-        return shape.area();
+        let sum = 0;
+        const shapesStr: string[] = arithmeticStr.split('@');
+        for (const singelShapeStr of shapesStr) {
+            const shape: Shape = shapeFactory(singelShapeStr);
+            sum += shape.area();
+        }
+        return sum;
     } else {
         throw new Error('Invalid input');
     }
