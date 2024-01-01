@@ -50,4 +50,9 @@ describe('TDD Workshop', () => {
         const result = calculate('R:2,7#area@C:15#area@R:4,5#area@T:3,6#area');
         expect(result).toEqual(749.5);
     });
+
+    it('expect C:15#circum to return 94.2', () => {
+        const result = calculate('C:15#circum');
+        expect(result).toEqual(94.2);
+    });
 });
